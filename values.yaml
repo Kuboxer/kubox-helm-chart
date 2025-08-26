@@ -11,7 +11,7 @@ services:
     serviceName: user-svc
     image:
       repository: kubox
-      tag: user-service-v1
+      tag: user-service-v2
     port: 8080
     replicas: 1
     env:
@@ -29,7 +29,7 @@ services:
     serviceName: product-svc
     image:
       repository: kubox
-      tag: product-service-v1
+      tag: product-service-v2
     port: 8081
     replicas: 2
     env:
@@ -80,7 +80,7 @@ services:
     serviceName: payment-svc
     image:
       repository: kubox
-      tag: payment-service-v1
+      tag: payment-service-v2
     port: 8083
     replicas: 1
     env:
