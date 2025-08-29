@@ -22,7 +22,7 @@ services:
     hpa:
       minReplicas: 1
       maxReplicas: 5
-      targetCPUUtilization: 50
+      targetCPUUtilization: 80
       
   productService:
     name: product-svc
@@ -39,7 +39,7 @@ services:
     hpa:
       minReplicas: 1
       maxReplicas: 10
-      targetCPUUtilization: 50
+      targetCPUUtilization: 80
       
   cartService:
     name: cart-svc
@@ -56,7 +56,7 @@ services:
     hpa:
       minReplicas: 1
       maxReplicas: 10
-      targetCPUUtilization: 50
+      targetCPUUtilization: 80
       
   orderService:
     name: order-svc
@@ -73,7 +73,7 @@ services:
     hpa:
       minReplicas: 1
       maxReplicas: 10
-      targetCPUUtilization: 50
+      targetCPUUtilization: 80
       
   paymentService:
     name: payment-svc
@@ -91,12 +91,12 @@ services:
     hpa:
       minReplicas: 1
       maxReplicas: 10
-      targetCPUUtilization: 50
+      targetCPUUtilization: 80
 
 # 리소스 설정
 resources:
   requests:
-    cpu: "100m"
+    cpu: "50m"
     memory: "256Mi"
   limits:
     cpu: "200m"
