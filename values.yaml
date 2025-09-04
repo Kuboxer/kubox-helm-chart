@@ -46,7 +46,7 @@ services:
     serviceName: cart-svc
     image:
       repository: kubox
-      tag: cart-service-v5
+      tag: cart-service-v6
     port: 8084
     replicas: 1
     env:
@@ -63,7 +63,7 @@ services:
     serviceName: order-svc
     image:
       repository: kubox
-      tag: order-service-v5
+      tag: order-service-v6
     port: 8082
     replicas: 1
     env:
@@ -80,7 +80,7 @@ services:
     serviceName: payment-svc
     image:
       repository: kubox
-      tag: payment-service-v3
+      tag: payment-service-v4
     port: 8083
     replicas: 1
     env:
