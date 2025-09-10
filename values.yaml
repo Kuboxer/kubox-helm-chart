@@ -104,7 +104,10 @@ resources:
 
 # 헬스체크 설정
 healthCheck:
-  path: "/actuator/health"
+  paths: "/actuator/health"
+    startup: "/actuator/health/liveness"
+    liveness: "/actuator/health/liveness"
+    readiness: "/actuator/health/readiness"
   startupProbe:
     periodSeconds: 10
     failureThreshold: 60
@@ -118,7 +121,7 @@ healthCheck:
   readinessProbe:
     periodSeconds: 15
     timeoutSeconds: 5
-    failureThreshold: 3
+    failureThreshold: 5
     initialDelaySeconds: 150
 
 # Secrets Store CSI 설정

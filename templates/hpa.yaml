@@ -20,5 +20,18 @@ spec:
       target:
         type: Utilization
         averageUtilization: {{ $config.hpa.targetCPUUtilization }}
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 30
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
 {{- end }}
 {{- end }}

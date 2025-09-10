@@ -17,6 +17,8 @@ spec:
       annotations:
         proxy.istio.io/config: '{"holdApplicationUntilProxyStarts": true}'
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
+        sidecar.istio.io/proxyCPU: "200m"
+        sidecar.istio.io/proxyMemory: "256Mi"
     spec:
       serviceAccountName: {{ $.Values.global.serviceAccount }}
       containers:
@@ -48,7 +50,7 @@ spec:
         {{- end }}
         startupProbe:
           httpGet:
-            path: {{ $.Values.healthCheck.path }}
+            path: {{ $.Values.healthCheck.paths.startup }}
             port: {{ $config.port }}
           periodSeconds: {{ $.Values.healthCheck.startupProbe.periodSeconds }}
           failureThreshold: {{ $.Values.healthCheck.startupProbe.failureThreshold }}
@@ -56,14 +58,14 @@ spec:
           initialDelaySeconds: {{ $.Values.healthCheck.startupProbe.initialDelaySeconds }}
         livenessProbe:
           httpGet:
-            path: {{ $.Values.healthCheck.path }}
+            path: {{ $.Values.healthCheck.paths.liveness }}
             port: {{ $config.port }}
           periodSeconds: {{ $.Values.healthCheck.livenessProbe.periodSeconds }}
           timeoutSeconds: {{ $.Values.healthCheck.livenessProbe.timeoutSeconds }}
           failureThreshold: {{ $.Values.healthCheck.livenessProbe.failureThreshold }}
         readinessProbe:
           httpGet:
-            path: {{ $.Values.healthCheck.path }}
+            path: {{ $.Values.healthCheck.path.readiness }}
             port: {{ $config.port }}
           periodSeconds: {{ $.Values.healthCheck.readinessProbe.periodSeconds }}
           timeoutSeconds: {{ $.Values.healthCheck.readinessProbe.timeoutSeconds }}
