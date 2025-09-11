@@ -65,7 +65,7 @@ spec:
           failureThreshold: {{ $.Values.healthCheck.livenessProbe.failureThreshold }}
         readinessProbe:
           httpGet:
-            path: {{ $.Values.healthCheck.path.readiness }}
+            path: {{ $.Values.healthCheck.paths.readiness }}
             port: {{ $config.port }}
           periodSeconds: {{ $.Values.healthCheck.readinessProbe.periodSeconds }}
           timeoutSeconds: {{ $.Values.healthCheck.readinessProbe.timeoutSeconds }}

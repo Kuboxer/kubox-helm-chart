@@ -104,7 +104,8 @@ resources:
 
 # 헬스체크 설정
 healthCheck:
-  paths: "/actuator/health"
+  paths: 
+    base: "/actuator/health"
     startup: "/actuator/health/liveness"
     liveness: "/actuator/health/liveness"
     readiness: "/actuator/health/readiness"
