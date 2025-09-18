@@ -6,7 +6,6 @@ metadata:
   name: {{ $config.name }}
   namespace: {{ $.Values.global.namespace }}
 spec:
-  replicas: {{ $config.replicas }}
   selector:
     matchLabels:
       app: {{ $config.name }}

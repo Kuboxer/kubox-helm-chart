@@ -13,7 +13,6 @@ services:
       repository: kubox
       tag: user-service-v6
     port: 8080
-    replicas: 1
     env:
       DB_NAME: "user_db"
     secrets:
@@ -31,7 +30,6 @@ services:
       repository: kubox
       tag: product-service-v5
     port: 8081
-    replicas: 1
     env:
       DB_NAME: "product_db"
     secrets:
@@ -48,7 +46,6 @@ services:
       repository: kubox
       tag: cart-service-v8
     port: 8084
-    replicas: 1
     env:
       DB_NAME: "cart_db"
     secrets:
@@ -65,7 +62,6 @@ services:
       repository: kubox
       tag: order-service-v8
     port: 8082
-    replicas: 1
     env:
       DB_NAME: "order_db"
     secrets:
@@ -82,7 +78,6 @@ services:
       repository: kubox
       tag: payment-service-v6
     port: 8083
-    replicas: 1
     env:
       DB_NAME: "payment_db"
     secrets:
