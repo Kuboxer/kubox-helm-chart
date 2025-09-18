@@ -60,7 +60,7 @@ services:
     serviceName: order-svc
     image:
       repository: kubox
-      tag: order-service-v8
+      tag: order-service-v9
     port: 8082
     env:
       DB_NAME: "order_db"
@@ -76,7 +76,7 @@ services:
     serviceName: payment-svc
     image:
       repository: kubox
-      tag: payment-service-v6
+      tag: payment-service-v7
     port: 8083
     env:
       DB_NAME: "payment_db"
