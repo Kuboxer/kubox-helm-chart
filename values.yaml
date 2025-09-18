@@ -18,7 +18,7 @@ services:
     secrets:
       - kubox-common-secret
       - kubox-bootpay-secret
-    hpa:
+    keda:
       minReplicas: 1
       maxReplicas: 5
       targetCPUUtilization: 80
@@ -34,7 +34,7 @@ services:
       DB_NAME: "product_db"
     secrets:
       - kubox-common-secret
-    hpa:
+    keda:
       minReplicas: 1
       maxReplicas: 10
       targetCPUUtilization: 80
@@ -50,7 +50,7 @@ services:
       DB_NAME: "cart_db"
     secrets:
       - kubox-common-secret
-    hpa:
+    keda:
       minReplicas: 1
       maxReplicas: 10
       targetCPUUtilization: 80
@@ -66,7 +66,7 @@ services:
       DB_NAME: "order_db"
     secrets:
       - kubox-common-secret
-    hpa:
+    keda:
       minReplicas: 1
       maxReplicas: 10
       targetCPUUtilization: 80
@@ -83,7 +83,7 @@ services:
     secrets:
       - kubox-common-secret
       - kubox-bootpay-secret
-    hpa:
+    keda:
       minReplicas: 1
       maxReplicas: 10
       targetCPUUtilization: 80

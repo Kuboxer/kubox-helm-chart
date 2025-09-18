@@ -1,0 +1,22 @@
+{{- range $serviceName, $config := .Values.services }}
+{{- if $config.keda }}
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ $config.name }}-scaler
+  namespace: {{ $.Values.global.namespace }}
+spec:
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: {{ $config.name }}
+  minReplicaCount: {{ $config.keda.minReplicas }}
+  maxReplicaCount: {{ $config.keda.maxReplicas }}
+  triggers:
+  - type: cpu
+    metadata:
+      type: Utilization
+      value: "{{ $config.keda.targetCPUUtilization }}"
+{{- end }}
+{{- end }}
