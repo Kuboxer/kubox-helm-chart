@@ -44,7 +44,7 @@ services:
     serviceName: cart-svc
     image:
       repository: kubox
-      tag: cart-service-v9
+      tag: cart-service-v10
     port: 8084
     env:
       DB_NAME: "cart_db"
@@ -60,7 +60,7 @@ services:
     serviceName: order-svc
     image:
       repository: kubox
-      tag: order-service-v10
+      tag: order-service-v11
     port: 8082
     env:
       DB_NAME: "order_db"
