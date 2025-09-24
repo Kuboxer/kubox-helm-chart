@@ -44,7 +44,7 @@ services:
     serviceName: cart-svc
     image:
       repository: kubox
-      tag: cart-service-v17
+      tag: cart-service-v18
     port: 8084
     env:
       DB_NAME: "cart_db"
