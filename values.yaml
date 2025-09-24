@@ -11,7 +11,7 @@ services:
     serviceName: user-svc
     image:
       repository: kubox
-      tag: user-service-v7
+      tag: user-service-v8
     port: 8080
     env:
       DB_NAME: "user_db"
