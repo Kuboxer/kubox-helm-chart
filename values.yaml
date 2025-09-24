@@ -76,7 +76,7 @@ services:
     serviceName: payment-svc
     image:
       repository: kubox
-      tag: payment-service-v12
+      tag: payment-service-v13
     port: 8083
     env:
       DB_NAME: "payment_db"
