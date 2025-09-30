@@ -24,6 +24,28 @@ spec:
       - name: {{ $config.name }}
         image: {{ $.Values.global.imageRegistry }}/{{ $config.image.repository }}:{{ $config.image.tag }}
         imagePullPolicy: Always
+        command: ["/bin/sh"]
+        args:
+          - "-c"
+          - |
+            export DB_HOST=$(cat /mnt/secrets/kubox-common-db-host)
+            export DB_PORT=$(cat /mnt/secrets/kubox-common-db-port)
+            export DB_USERNAME=$(cat /mnt/secrets/kubox-common-db-username)
+            export DB_PASSWORD=$(cat /mnt/secrets/kubox-common-db-password)
+            export REDIS_HOST=$(cat /mnt/secrets/kubox-common-redis-host)
+            export REDIS_PORT=$(cat /mnt/secrets/kubox-common-redis-port)
+            export REDIS_SSL_ENABLED=$(cat /mnt/secrets/kubox-common-redis-ssl-enabled)
+            export JWT_SECRET_KEY=$(cat /mnt/secrets/kubox-common-jwt-secret)
+            export JWT_EXPIRATION=$(cat /mnt/secrets/kubox-common-jwt-expiration)
+            export CORS_ALLOWED_ORIGINS=$(cat /mnt/secrets/kubox-common-cors-origins)
+            export CORS_ALLOWED_METHODS=$(cat /mnt/secrets/kubox-common-cors-methods)
+            export CORS_ALLOWED_HEADERS=$(cat /mnt/secrets/kubox-common-cors-headers)
+            export LOG_LEVEL=$(cat /mnt/secrets/kubox-common-log-level)
+            export AWS_DEFAULT_REGION=$(cat /mnt/secrets/kubox-common-aws-region)
+            export BOOTPAY_API_URL=$(cat /mnt/secrets/kubox-bootpay-api-url)
+            export BOOTPAY_APPLICATION_ID=$(cat /mnt/secrets/kubox-bootpay-app-id)
+            export BOOTPAY_PRIVATE_KEY=$(cat /mnt/secrets/kubox-bootpay-private-key)
+            java -jar /app/app.jar
         ports:
         - containerPort: {{ $config.port }}
           name: http

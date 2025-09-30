@@ -15,6 +15,9 @@ services:
     port: 8080
     env:
       DB_NAME: "user_db"
+    # secrets:
+    #   - kubox-common-secret
+    #   - kubox-bootpay-secret
     keda:
       minReplicas: 1
       maxReplicas: 5
@@ -29,6 +32,8 @@ services:
     port: 8081
     env:
       DB_NAME: "product_db"
+    # secrets:
+    #   - kubox-common-secret
     keda:
       minReplicas: 1
       maxReplicas: 10
@@ -43,6 +48,8 @@ services:
     port: 8084
     env:
       DB_NAME: "cart_db"
+    # secrets:
+    #   - kubox-common-secret
     keda:
       minReplicas: 1
       maxReplicas: 10
@@ -57,6 +64,8 @@ services:
     port: 8082
     env:
       DB_NAME: "order_db"
+    # secrets:
+    #   - kubox-common-secret
     keda:
       minReplicas: 1
       maxReplicas: 10
@@ -71,6 +80,9 @@ services:
     port: 8083
     env:
       DB_NAME: "payment_db"
+    # secrets:
+    #   - kubox-common-secret
+    #   - kubox-bootpay-secret
     keda:
       minReplicas: 1
       maxReplicas: 10
